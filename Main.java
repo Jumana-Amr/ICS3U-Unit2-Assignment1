@@ -30,17 +30,17 @@ public class Main {
     System.out.print("Debugging: ");
     debugging = input.nextDouble();
     System.out.println("Time taken for each task ");
-    sum += design + code + testing + debugging;
-    percentd = 100 / (sum / design);
+    sum += design+code+testing+debugging;
+    percentd = 100 / (sum/design);
     percentc = 100 / (sum / code);
     percentt = 100 / (sum / testing);
     percentde = 100 / (sum / debugging);
-    System.out.format("%-10s %20s", "Designing",((String.format("%.2f", percentd))+(" %\n")));
-    System.out.format("%-10s %20s", "Code",((String.format("%.2f", percentc))+(" %\n")));
-    System.out.format("%-10s %20s", "Testing",((String.format("%.2f", percentt))+(" %\n")));
+    System.out.format("%-10s %20s", "Designing",((String.format("%.2f",percentd))+(" %\n")));
+    System.out.format("%-10s %20s", "Code",((String.format("%.2f",percentc))+(" %\n")));
+    System.out.format("%-10s %20s", "Testing",((String.format("%.2f",percentt))+(" %\n")));
     System.out.format("%-10s %20s", "Debugging",((String.format("%.2f", percentde))+(" %\n")));
-    hour = sum / 60;
-    percentday = 100 / (24 / hour);
-    System.out.println("You have spent: " + (String.format("%.2f", percentday))+(" % of the day\n"));
+    hour = sum/60;
+    percentday = 100/(24/hour);
+    System.out.println("You have spent: "+(String.format("%.2f", percentday))+(" % of the day\n"));
   }
 }
