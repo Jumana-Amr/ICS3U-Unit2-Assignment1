@@ -6,7 +6,7 @@
 * ICS3U
 */
 import java.util.Scanner;
-
+import java.text.NumberFormat;
 public class Main {
   public static void main(String[] args) {
     double design;
@@ -20,6 +20,8 @@ public class Main {
     double percentde;
     double hour;
     double percentday;
+    NumberFormat percent = NumberFormat.getPercentInstance();
+    percent.setMinimumFractionDigits(2);
     Scanner input = new Scanner(System.in);
     System.out.print("Design: ");
     design = input.nextDouble();
@@ -29,18 +31,18 @@ public class Main {
     testing = input.nextDouble();
     System.out.print("Debugging: ");
     debugging = input.nextDouble();
-    System.out.println("Time taken for each task ");
+    System.out.println("Time taken for each task in %");
     sum += design+code+testing+debugging;
-    percentd = 100/(sum/design);
-    percentc = 100/(sum/code);
-    percentt = 100/(sum/testing);
-    percentde = 100/(sum/debugging);
-    System.out.format("%-10s %20s","Designing",((String.format("%.2f",percentd))+(" %\n")));
-    System.out.format("%-10s %20s","Code",((String.format("%.2f",percentc))+(" %\n")));
-    System.out.format("%-10s %20s","Testing",((String.format("%.2f",percentt))+(" %\n")));
-    System.out.format("%-10s %20s","Debugging",((String.format("%.2f",percentde))+(" %\n")));
+    percentd = design/sum;
+    percentc = code/sum;
+    percentt = testing/sum;
+    percentde = debugging/sum;
+    System.out.format("%-10s %20s","Designing",(percent.format(percentd))+("\n"));
+    System.out.format("%-10s %20s","Code",(percent.format(percentc))+("\n"));
+    System.out.format("%-10s %20s","Testing",(percent.format(percentt))+("\n"));
+    System.out.format("%-10s %20s","Debugging",(percent.format(percentde))+("\n"));
     hour = sum/60;
-    percentday = 100/(24/hour);
-    System.out.println("You have spent: "+(String.format("%.2f",percentday))+(" % of the day\n"));
+    percentday = hour/24;
+    System.out.println("You have spent: "+(percent.format(percentday))+(" % of the day"));
   }
 }
